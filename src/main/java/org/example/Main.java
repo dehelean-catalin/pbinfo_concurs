@@ -1,9 +1,24 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        int initialNumOfHeads= 6;
+       Scanner scanner = new Scanner(System.in);
 
+       int daysCount = scanner.nextInt();
+
+       System.out.println(cutHead(daysCount, initialNumOfHeads));
+    }
+
+    public static int cutHead(int days, int headCount){
+        if(days == 0){
+            return headCount;
+        }
+        if(days == 1){
+            return --headCount;
+        }
+
+        return cutHead(days - 1, headCount + 5);
     }
 }
