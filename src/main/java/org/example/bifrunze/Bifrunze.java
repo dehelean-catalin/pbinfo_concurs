@@ -20,7 +20,10 @@ public class Bifrunze {
             String rootLine = lines[rootIndex];
 
             Node binaryTree =  createBinaryTree(rootLine, lines);
-            printNodeValue(binaryTree, writer);
+
+            inOrder(binaryTree, writer);
+            postOrder(binaryTree,writer);
+            preOrder(binaryTree,writer);
 
             writer.close();
         }catch (FileNotFoundException err){
@@ -30,16 +33,38 @@ public class Bifrunze {
         }
     }
 
-    public static void printNodeValue(Node node, FileWriter writer) throws IOException {
+    public static void inOrder(Node node, FileWriter writer) throws IOException {
+        if(node == null){
+            return;
+        }
+        inOrder(node.getLeft(), writer);
+
+        writer.write(node.getValue()+" ");
+
+        inOrder(node.getRight(), writer);
+    }
+
+    public static void preOrder(Node node, FileWriter writer) throws IOException {
         if(node == null){
             return;
         }
 
         writer.write(node.getValue()+" ");
 
-        printNodeValue(node.getLeft(), writer);
-        printNodeValue(node.getRight(), writer);
+        preOrder(node.getLeft(), writer);
+        preOrder(node.getRight(), writer);
     }
+
+    public static void postOrder(Node node, FileWriter writer) throws IOException {
+        if(node == null){
+            return;
+        }
+        postOrder(node.getLeft(), writer);
+        postOrder(node.getRight(), writer);
+
+        writer.write(node.getValue()+" ");
+    }
+
     public static String[] convertFileToStringArr(Scanner scanner){
         short numberOfNodes = scanner.nextShort();
 
