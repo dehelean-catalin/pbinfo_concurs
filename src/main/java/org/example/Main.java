@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 public class Main {
-    public static final String path = "./src/main/java/org/example/";
+    public static final String PATH = "./src/main/java/org/example/";
     public static void main(String[] args) {
         int initialNumOfHeads= 6;
        Scanner scanner = new Scanner(System.in);

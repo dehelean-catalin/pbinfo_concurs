@@ -7,11 +7,11 @@ import java.util.*;
 
 public class Bifrunze {
     public static void main(String[] args){
-        File file = new File(Main.path +
+        File file = new File(Main.PATH +
                 "bifrunze/bifrunze.in");
 
         try(Scanner scanner = new Scanner(file)){
-            FileWriter writer = new FileWriter(Main.path +
+            FileWriter writer = new FileWriter(Main.PATH +
                     "bifrunze/bifrunze.out");
 
             String[] lines = convertFileToStringArr(scanner);
@@ -109,7 +109,7 @@ public class Bifrunze {
         Node node = new Node();
 
         String[] vals = value.split(" ");
-        node.setValue(vals[0]);
+        node.setValue(Integer.parseInt(vals[0]));
 
         int leftIndex = Integer.parseInt(vals[1]);
         int rightIndex = Integer.parseInt(vals[2]);
